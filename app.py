@@ -22,7 +22,10 @@ app = Flask(__name__)
 
 # Configuracion de base de datos desde variable de entorno
 
-DATABASE_URL = os.environ.get("DATABASE_URL", "")DATABASE_URL = os.getenv("DATABASE_URL")
+app = Flask(__name__)
+
+# Configuracion de base de datos desde variable de entorno
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 print("DATABASE_URL =", DATABASE_URL)
 
