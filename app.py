@@ -7,15 +7,13 @@ from datetime import datetime
 # Intentar importar psycopg2 para PostgreSQL
 
 try:
-
     import psycopg2
-
     import psycopg2.extras
-
     USAR_DB = True
+    print("PSYCOPG2 CARGADO CORRECTAMENTE")
 
-except ImportError:
-
+except Exception as e:
+    print("ERROR PSYCOPG2:", e)
     USAR_DB = False
 
 app = Flask(__name__)
