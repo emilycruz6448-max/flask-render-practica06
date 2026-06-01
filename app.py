@@ -555,25 +555,19 @@ def index():
     return render_template_string(TEMPLATE, comentarios=comentarios, db_ok=db_ok)
 
 @app.route("/api/status")
-
 def status():
 
-    """Endpoint de verificacion"""
-
     return {
-
         "status": "ok",
-
         "plataforma": "Render.com",
-
         "modelo": "PaaS",
-
         "base_datos": "conectada" if (USAR_DB and DATABASE_URL) else "no configurada",
 
+        "usar_db": USAR_DB,
+        "database_url_existe": bool(DATABASE_URL),
+
         "framework": "Flask",
-
         "python": os.popen("python3 --version").read().strip()
-
     }
 
 if __name__ == "__main__":
